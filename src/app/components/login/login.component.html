@@ -1,0 +1,111 @@
+<div class="container" *ngIf="displayLogin">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div [hidden]="errorMessage == '' " class="alert-danger badge">{{errorMessage}}</div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Ingresar</h5>
+          <form [formGroup]="userForm" (ngSubmit)="login()" novalidate>
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" formControlName="email" required autofocus>
+              <label for="inputEmail">Correo Electrónico</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" formControlName="password" required>
+              <label for="inputPassword">Contraseña</label>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Recordar Contraseña</label>
+            </div>
+            <button [disabled]="loading" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Ingresar</button>
+            <a class="d-block text-center mt-2 small" (click)="setValidFields(false)" >Registrarme</a>
+            <hr class="my-4">
+            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Ingresar con Google</button>
+            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Ingresar con Facebook</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container" *ngIf="!displayLogin">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+           <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Registro</h5>
+          <form [formGroup]="userForm" (ngSubmit)="submitRegistration()" novalidate>
+            <div class="form-label-group">
+              <input type="text" id="inputUserame" class="form-control" placeholder="Username" formControlName="nombre" required autofocus>
+              <label for="inputUserame">Nombre</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="text" id="inputLastName" class="form-control" placeholder="Username" formControlName="apellido" required autofocus>
+              <label for="inputLastName">Apellido</label>
+            </div>
+
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" formControlName="email" required>
+              <label for="inputEmail">Email</label>
+            </div>
+            
+            <hr>
+
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" formControlName="password" required>
+              <label for="inputPassword">Contraseña</label>
+            </div>
+            
+            <div class="form-label-group">
+              <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+              <label for="inputConfirmPassword">Confirmar Contraseña</label>
+            </div>
+
+            <div class="form-label-group">
+              <label for="calle">Calle y Número</label>
+              <input type="text" class="form-control" formControlName="calle" required/>
+            </div>
+            <div class="form-label-group">
+              <label for="colonia">Colonia</label>
+              <input type="text" class="form-control" formControlName="colonia" required/>
+            </div>
+            <div class="form-label-group">
+              <label for="codigoPostal">Código Postal</label>
+              <input type="text" class="form-control" formControlName="codigoPostal" required/>
+            </div>
+            <div class="form-label-group">
+              <label for="localidadId">Localidad</label>
+              <input type="text" class="form-control" formControlName="localidadId" required/>
+            </div>
+            <div class="form-label-group">
+              <label for="estadoId">Estado</label>
+              <input type="text" class="form-control" formControlName="estadoId" required/>
+            </div>
+            <div class="form-label-group">
+              <label for="telefonos">Telefono(s)</label>
+              <input type="text" class="form-control" formControlName="telefonos" required/>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Registrar</button>
+
+            <a class="d-block text-center mt-2 small" (click)="setValidFields(true)">Ingresar</a>
+            <hr class="my-4">
+          </form>
+          <a href="https://api.whatsapp.com/send?phone=5216141884991&text=Hola,%20¿Qué%20tal%20%estás?">enviar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

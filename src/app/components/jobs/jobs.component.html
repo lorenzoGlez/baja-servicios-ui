@@ -1,0 +1,48 @@
+    
+    <!--==========================
+      Team Section
+    ============================-->
+    <section id="team" class="section-bg">
+            <div class="container">
+              <div class="section-header">
+                <h3>Busqueda de servicios</h3>
+              </div>
+      
+              <div class="row">
+
+                    <div _ngcontent-xvf-c1="" class="form-label-group table">
+                        <input [(ngModel)]="listFilter" _ngcontent-xvf-c1="" autofocus="" class="form-control ng-pristine ng-invalid ng-touched" formcontrolname="email" id="inputEmail" placeholder="Email address" required="" type="text" ng-reflect-required="" ng-reflect-name="email">
+                        <label _ngcontent-xvf-c1="" for="inputEmail">Servicio que busca</label>
+                    </div>
+      
+              </div>
+      
+            </div>
+          </section><!-- #team -->
+      
+      
+    
+    <!--==========================
+      Services Section
+    ============================-->
+    <section id="services" class="section-bg">
+        <div class="container">
+  
+          <header class="section-header">
+ 
+          </header>
+  
+          <div class="row" *ngFor="let row of rows">
+  
+            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-duration="1.4s" *ngFor="let user of row" >
+              <div class="box">
+                <div class="icon" style="background: #fceef3;"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                <h4 class="title"><a href="">{{user.name + " " + user.lastName}}</a></h4>
+                <p class="description">{{user.phones}}, {{user.street}}, {{user.suburb}}, {{user.postalCode}}, {{user.city}}, {{user.state}}</p>
+              </div>
+            </div>
+
+          </div>
+  
+        </div>
+      </section><!-- #services -->
